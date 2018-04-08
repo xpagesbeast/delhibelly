@@ -7,5 +7,5 @@ html,body {height:100%;width:100%;}
 .container-full-bg .container, .container-full-bg .container .jumbotron {height:100%;width:100%;}
 
 .bg-indianchat2{
-    background: url('/group6/images/indianchat2.jpg') no-repeat center center;
+    background: url('../images/indianchat2.jpg') no-repeat center center;
 }
