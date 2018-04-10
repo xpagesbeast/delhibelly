@@ -1,16 +1,8 @@
-<?php # Script 3.7 - index.php #2
-
-// This function outputs theoretical HTML
-// for adding ads to a Web page.
-function create_ad() {
-	echo '<p class="ad">This is an annoying ad! This is an annoying ad! This is an annoying ad! This is an annoying ad!</p>';
-} // End of the function definition.
+<?php # Script 3.4 - index.php
+include ('includes/session.php');
 
 $page_title = 'Welcome to this Site!';
-include ('includes/header.html');
-
-// Call the function:
-//create_ad();
+include ('./includes/header.php');
 ?>
     <div class="container">
         <h1>Show order history if User is logged in</h1>

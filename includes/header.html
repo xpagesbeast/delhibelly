@@ -34,6 +34,22 @@
 			<li class="nav-item">
 				<a class="nav-link" href="about.php">About Us</a>
 			</li>
+			<?php
+			if (!isset($_SESSION['user_id'])) {
+				echo '<li class="nav-link" ><a href="register.php">Register</a></li> ';
+			echo '<li class="nav-link" ><a href="login.php">Sign In</a></li>';
+			}
+			else
+			{
+			if ($is_admin) {
+			echo '<li><a class="nav-link" href="view_users.php">View Users</a></li>';
+			}
+
+			echo '<li><a class="nav-link" href="password.php">Change Password</a></li>';
+			echo '<li><a class="nav-link" href="logout.php">Log Out</a></li>';
+			echo '<li>Welcome back <?php echo $user_name ?></a>';
+			}
+			?>
 		</ul>
 		<form class="form-inline my-2 my-lg-0">
 			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
