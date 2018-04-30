@@ -55,15 +55,19 @@ if (isset($_GET['timezone'])) {
     if (!empty($myreservations_array)) {
       //  echo '<br /> we have data in from database.';
         foreach ($myreservations_array as $key => $value) {
-          //  echo '<br />'.$myreservations_array[$key]["DATE"];
+            //echo '<br />'.$myreservations_array[$key]["DATE"];
+            //echo '<br />'.$myreservations_array[$key]["START_TIME"];
+            //echo '<br />'.$myreservations_array[$key]["PURPOSE"];
+
             // Convert the input array into a useful Event object
             $event = new Event($array, $timezone);
             $event->id = $myreservations_array[$key]["ID"];
 
-            $event->start = parseDateTime($myreservations_array[$key]["DATE"]);
+            $event->start = parseDateTime($myreservations_array[$key]["DATE"]." ".$myreservations_array[$key]['START_TIME']);
             $event->time = $myreservations_array[$key]['START_TIME'];
 
             $event->end =  parseDateTime($myreservations_array[$key]["DATE"]);
+            $event->title = $myreservations_array[$key]['PURPOSE'];
 
         //    echo '<br /> Event dates from databse ' . $event->start->format('Y-m-d H:i:s') . " " . $event->end->format('Y-m-d H:i:s');
 

@@ -10,17 +10,9 @@ if(!$_SESSION['user_id']){
 $member_id = $_SESSION['user_id'];
 require_once "cartandpayment/ShoppingCart.php";
 
-
 $shoppingCart = new ShoppingCart();
-$debug = '<br /> checking for _POST';
-if(isset($_POST['submit'])) {
-    //$date, $guests, $userId, $starttime
-    $debug += '<br /> this is a POST, calling shopping cart.inserReservation.';
-    //$reservation = $shoppingCart->insertReservation ( $_POST["DATE"], $_POST["GUESTS"],$member_id,$_POST["START_TIME"]);
-    $debug += '<br /> done with inserting data.';
-}
 
-$queryReservations = "SELECT RESERVATIONS.DATE, RESERVATIONS.GUESTS, RESERVATIONS.ID, RESERVATIONS.START_TIME, RESERVATIONS.USER_ID FROM RESERVATIONS WHERE RESERVATIONS.USER_ID = " . $member_id;
+$queryReservations = "SELECT RESERVATIONS.DATE, RESERVATIONS.GUESTS, RESERVATIONS.ID, RESERVATIONS.START_TIME, RESERVATIONS.USER_ID, RESERVATIONS.PURPOSE FROM RESERVATIONS WHERE RESERVATIONS.USER_ID = " . $member_id;
 
 $myreservations_array = $shoppingCart->getAllReservations($queryReservations);
 
@@ -42,10 +34,6 @@ include ('includes/header.php');
     <div class="col-md-12">
         <div id="calendar"></div>
     </div>
-</div>
-
-<div class="row">
-    <?php echo $debug ?>
 </div>
 
 <div class="modal fade" id="newReservationModal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -77,7 +65,7 @@ include ('includes/header.php');
                 </div>
             </div>
             <div class="modal-footer">
-                <input name="submit" id="submit" type="submit" class="btn btn-primary">Save changes</input>
+                <button name="submit" id="submit" type="submit" class="btn btn-primary">Save changes</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>

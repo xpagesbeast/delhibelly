@@ -133,3 +133,5 @@ if(isset($_SESSION["cart_item"])){
 <?php
 include ('../includes/footer.html');
 ?>
+</body>
+</html>

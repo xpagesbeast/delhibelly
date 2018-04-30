@@ -4,6 +4,7 @@ CREATE  TABLE `delhibelly`.`RESERVATIONS` (
   `DATE` DATE NOT NULL ,
   `START_TIME` TIME NOT NULL ,
   `GUESTS` INT NOT NULL ,
+  'PURPOSE', varchar(100),
   PRIMARY KEY (`ID`) );
 
 SELECT * FROM reservations;
