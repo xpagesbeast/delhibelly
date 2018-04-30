@@ -4,22 +4,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap core CSS -->
-    <!--<link href="css/bootstrap.min.css" rel="stylesheet" />-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- Bootstrap theme -->
-    <!-- -->
-<!--	<link href="css/theme.css" rel="stylesheet" />
--->
 	<link href="css/bootstrap-theme.min.css" rel="stylesheet">
+
+    <!-- Fonts / icons -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
 
+    <!-- Reservation Calendar CSS -->
+    <link href='css/calendar/fullcalendar.print.min.css' rel='stylesheet' media='print' />
+    <link rel='stylesheet prefetch' href='css/calendar/fullcalendar.min.css'>
+
     <!-- Custom CSS -->
-	<!-- 
-	<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"> 
-	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700"> 
-	<link rel="stylesheet" href="css/otherstyle.css"> 
-	-->
     <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
 
     <title><?php echo $page_title; ?></title>	
@@ -32,6 +29,8 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+
 </head>
 
 <body role="document">
@@ -45,26 +44,26 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active underline-red">
+                <li id="nav-home" class="nav-item ">
                     <a class="nav-link" href="index.php"><i class="fas fa-home"></i><span class="space-3">Home</span> <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
+                <li id="nav-reservation" class="nav-item">
                     <a class="nav-link" href="reservations.php"><i class="fas fa-calendar-alt"></i><span class="space-3">Make a Reservation</span></a>
                 </li>
-                <li class="nav-item">
+                <li id="nav-order" class="nav-item">
 
-                    <a class="nav-link" href="cart/index.php"><i class="fas fa-utensils"></i><span class="space-3">Menu</span></a>
+                    <a class="nav-link" href="menu.php"><i class="fas fa-utensils"></i><span class="space-3">Menu</span></a>
                 </li>
-                <li class="nav-item">
+                <li id="nav-history" class="nav-item">
                     <a class="nav-link" href="myorders.php"><i class="fas fa-list-alt"></i><span class="space-3">Order History</span></a>
                 </li>
-                <li class="nav-item">
+                <li id="nav-about" class="nav-item">
                     <a class="nav-link" href="about.php"><i class="fas fa-people-carry"></i><span class="space-3">About Us</span></a>
                 </li>
 
             </ul>
             <form class="form-inline my-2 my-lg-0">
-
+                <ul class="navbar-nav">
                 <?php
                 if (!isset($_SESSION['user_id'])) {
                     echo '<li class="nav-link" ><a  class="btn btn-outline-success my-2 my-sm-0" href="register.php">Register</a></li> ';
@@ -78,9 +77,10 @@
 
                     echo '<li><a class="nav-link" href="password.php">Change Password</a></li>';
                     echo '<li><a class="nav-link" href="logout.php">Log Out</a></li>';
-                    echo '<li>Welcome back <?php echo $user_name ?></a>';
+                    echo '<li class="nav-link">'.$user_name.'</a>';
                 }
                 ?>
+                </ul>
             </form>
         </div>
     </nav>

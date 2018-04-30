@@ -6,6 +6,7 @@ include ('includes/header.php');
 
 require_once ('mysqli_connect.php'); // Connect to the db.
 
+
 // Check if the form has been submitted:
 if (isset($_POST['submitted'])) {
 
@@ -133,3 +134,6 @@ mysqli_close($dbc); // Close the database connection.
 <?php
 include ('includes/footer.html');
 ?>
+
+</body>
+</html>

@@ -1,5 +1,6 @@
 <?php # Script 3.4 - index.php
 include ('includes/session.php');
+highLightNavigationTab('home');
 
 $page_title = 'Welcome to this Site!';
 include ('./includes/header.php');
@@ -20,3 +21,13 @@ include ('./includes/header.php');
 <?php
 include ('./includes/footer.html');
 ?>
+
+<script>
+
+    highlightNavItem('nav-item', 'nav-home');
+
+
+</script>
+
+</body>
+</html>

@@ -1,4 +1,7 @@
 <?php
+include ('includes/session.php');
+highLightNavigationTab('order');
+
 require_once "ShoppingCart.php";
 
 $member_id = 2; // you can your integerate authentication module here to get logged in member

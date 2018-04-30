@@ -1,6 +1,6 @@
-<div id="product-grid">
-    <div class="txt-heading">
-        <div class="txt-heading-label">Products</div>
+<div>
+    <div>
+        <h3>Choose from one of these delicious cuisines</h3>
     </div>
     <?php
     $query = "SELECT * FROM tbl_product";
@@ -10,9 +10,9 @@
             ?>
         <div class="product-item">
         <form method="post"
-            action="index.php?action=add&code=<?php echo $product_array[$key]["code"]; ?>">
+            action="menu.php?action=add&code=<?php echo $product_array[$key]["code"]; ?>">
             <div class="product-image">
-                <img src="<?php echo $product_array[$key]["image"]; ?>">
+                <img src="<?php echo 'cartandpayment/'.$product_array[$key]["image"]; ?>">
                 <div class="product-title">
                     <?php echo $product_array[$key]["name"]; ?>
                 </div>
@@ -21,7 +21,7 @@
                 <div class="float-right">
                     <input type="text" name="quantity" value="1"
                         size="2" class="input-cart-quantity" /><input type="image"
-                        src="image/add-to-cart.png" class="btnAddAction" />
+                        src="cartandpayment/image/add-to-cart.png" class="btnAddAction" />
                 </div>
                 <div class="product-price float-left"><?php echo "$".$product_array[$key]["price"]; ?></div>
                 

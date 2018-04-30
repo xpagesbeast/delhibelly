@@ -12,6 +12,16 @@ class ShoppingCart extends DBController
         return $productResult;
     }
 
+    function getAllOrders($newquery){
+        $ordersResult = $this->getDBResult($newquery);
+        return $ordersResult;
+    }
+
+    function getAllReservations($newquery){
+        $result = $this->getDBResult($newquery);
+        return $result;
+    }
+
     function getMemberCartItem($member_id)
     {
         $query = "SELECT tbl_product.*, tbl_cart.id as cart_id,tbl_cart.quantity FROM tbl_product, tbl_cart WHERE 
@@ -248,5 +258,33 @@ class ShoppingCart extends DBController
         );
         
         $this->updateDB($query, $params);
+    }
+
+    function insertReservation($date, $guests, $userId, $starttime)
+    {
+        echo '<br /> inserting in reservations.';
+        $query = "INSERT INTO RESERVATIONS (DATE, GUESTS, START_TIME, USER_ID) VALUES (?, ?, ?, ?)";
+
+        $params = array(
+            array(
+                "param_type" => "s",
+                "param_value" => $date
+            ),
+            array(
+                "param_type" => "i",
+                "param_value" => $guests
+            ),
+            array(
+                "param_type" => "i",
+                "param_value" => $userId
+            ),
+            array(
+                "param_type" => "i",
+                "param_value" => $starttime
+            )
+        );
+
+        $this->insertDB($query, $params);
+        echo '<br /> returning from inserting into db';
     }
 }

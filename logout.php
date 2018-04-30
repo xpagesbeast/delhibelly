@@ -29,3 +29,6 @@ echo "<h1>Logged Out!</h1>
 
 include ('includes/footer.html');
 ?>
+
+</body>
+</html>

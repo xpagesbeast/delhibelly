@@ -68,3 +68,6 @@ if (!empty($errors)) {
 <?php
 include ('includes/footer.html');
 ?>
+
+</body>
+</html>

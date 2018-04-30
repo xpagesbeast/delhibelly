@@ -1,4 +1,7 @@
 <?php
+include ('../includes/session.php');
+highLightNavigationTab('order');
+
 require_once "ShoppingCart.php";
 
 $member_id = 2; // you can your integerate authentication module here to get logged in member
@@ -6,14 +9,9 @@ $member_id = 2; // you can your integerate authentication module here to get log
 $shoppingCart = new ShoppingCart();
 
 ?>
-<HTML>
-<HEAD>
-<TITLE>Enriched Responsive Shopping Cart in PHP</TITLE>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link href="style.css" type="text/css" rel="stylesheet" />
-</HEAD>
-<BODY>
+
+
 <?php
 $cartItem = $shoppingCart->getMemberCartItem($member_id);
 $item_quantity = 0;
@@ -27,11 +25,17 @@ if (! empty($cartItem)) {
     }
 }
 ?>
+
+<?php
+$page_title = 'Make an Order';
+include ('../includes/header.php');
+?>
+
 <div id="shopping-cart">
         <div class="txt-heading">
             <div class="txt-heading-label">Shopping Cart</div>
 
-            <a id="btnEmpty" href="index.php?action=empty"><img
+            <a id="btnEmpty" href="../menu.php?action=empty"><img
                 src="image/empty-cart.png" alt="empty-cart"
                 title="Empty Cart" class="float-right" /></a>
             <div class="cart-status">
@@ -58,5 +62,15 @@ if (! empty($cartItem)) {
     <div>
         <a href="./"><button class="btn-continue">Continue Shopping</button></a>
     </div>
-</BODY>
+<?php
+include ('../includes/footer.html');
+?>
+<script>
+
+    highlightNavItem('nav-item', 'nav-order');
+
+
+</script>
+</body>
+</html>
 </HTML>

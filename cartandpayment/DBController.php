@@ -13,14 +13,14 @@ class DBController
     {
         $this->conn = mysqli_connect($this->host, $this->user, $this->password, $this->database);
     }
-
+/*
     public static function getConnection()
     {
         if (empty($this->conn)) {
             new Database();
         }
     }
-
+*/
     function getDBResult($query, $params = array())
     {
         $sql_statement = $this->conn->prepare($query);

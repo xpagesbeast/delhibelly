@@ -11,7 +11,7 @@
 				<div class="cart-item-container">
             <div class="cart-info title">
                 <img class="cart-image"
-                    src="<?php echo $item["image"]; ?>">
+                    src="<?php echo 'cartandpayment/'.$item["image"]; ?>">
                     <?php echo $item["name"]; ?>
                 </div>
 
@@ -26,10 +26,8 @@
 
             <div class="cart-info action">
                 <a
-                    href="index.php?action=remove&id=<?php echo $item["cart_id"]; ?>"
-                    class="btnRemoveAction"><img
-                    src="image/icon-delete.png" alt="icon-delete"
-                    title="Remove Item" /></a>
+                    href="menu.php?action=remove&id=<?php echo $item["cart_id"]; ?>"
+                    class="btnRemoveAction"><i class="fas fa-trash"></i></a>
             </div>
         </div>
 				<?php
